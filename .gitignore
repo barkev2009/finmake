@@ -1,0 +1,8 @@
+node_modules
+build
+tests
+.env
+.vscode
+.git
+package-lock.json
+config
