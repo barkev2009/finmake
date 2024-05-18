@@ -10,6 +10,6 @@ router.post('/', [
 router.put('/:code', callRequestController.edit);
 router.delete('/:code', callRequestController.delete);
 router.get('/', callRequestController.getAllCallRequests);
-router.get('/:code', callRequestController.getCallRequestByCode)
+router.get('/:code', callRequestController.getCallRequestByCode);
 
 module.exports = router;
