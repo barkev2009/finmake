@@ -1,8 +1,8 @@
+import Landing from "./components/Landing";
+
 function App() {
   return (
-    <div>
-      FINMAKE
-    </div>
+    <Landing />
   );
 }
 

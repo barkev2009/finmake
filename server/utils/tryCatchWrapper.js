@@ -1,4 +1,5 @@
 const ApiError = require('../error/ApiError');
+const { validationResult } = require('express-validator');
 
 module.exports = function (func, req, res, next, funcName) {
     try {
