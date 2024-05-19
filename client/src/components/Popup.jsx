@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Modal from '../common/Modal'
 import { createCreateRequestAPI } from '../www/callRequestAPI';
+import { ModalContext } from './Landing';
 
-const Popup = ({ active, setActive }) => {
+const Popup = () => {
+
+    const { active, setActive } = useContext(ModalContext);
 
     const [name, setName] = useState('');
     const [phone_number, setPhoneNumber] = useState('');

@@ -1,16 +1,18 @@
-import React, { useState } from 'react'
+import React, { createContext, useState } from 'react'
 import Popup from './Popup';
+
+export const ModalContext = createContext();
 
 const Landing = () => {
 
     const [active, setActive] = useState(false);
 
-  return (
-    <div>
-        <button onClick={() => setActive(!active)}>CLICK ME</button>
-        <Popup active={active} setActive={setActive} />
-    </div>
-  )
+    return (
+        <ModalContext.Provider value={{ active, setActive }}>
+            <button onClick={() => setActive(!active)}>CLICK ME</button>
+            <Popup />
+        </ModalContext.Provider>
+    )
 }
 
 export default Landing
