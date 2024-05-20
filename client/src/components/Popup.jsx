@@ -11,7 +11,8 @@ const Popup = () => {
     const [phone_number, setPhoneNumber] = useState('');
     const [disabled, setDisabled] = useState(true);
 
-    const buttonHandler = () => {
+    const submitHandler = (e) => {
+        e.preventDefault();
         setActive(false);
         createCreateRequestAPI({ name, phone_number });
         setName('');
@@ -26,9 +27,11 @@ const Popup = () => {
     return (
         <Modal active={active} setActive={setActive}>
             <h1>Buy our shit!</h1>
-            <input type="text" placeholder='Введите имя' value={name} onChange={e => setName(e.target.value)} />
-            <input type="text" placeholder='Введите номер телефона' value={phone_number} onChange={e => setPhoneNumber(e.target.value)} />
-            <button disabled={disabled} onClick={buttonHandler}>SEND</button>
+            <form onSubmit={submitHandler}>
+                <input type="text" placeholder='Введите имя' value={name} onChange={e => setName(e.target.value)} />
+                <input type="text" placeholder='Введите номер телефона' value={phone_number} onChange={e => setPhoneNumber(e.target.value)} />
+                <button type='submit' disabled={disabled} onClick={submitHandler}>SEND</button>
+            </form>
         </Modal>
     )
 }
