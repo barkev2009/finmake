@@ -8,15 +8,14 @@ module.exports = function (req, resp, next) {
         next()
     }
     try {
-        const cookies = getCookie(req);
-        const token = cookies[process.env.COOKIE_TOKEN_NAME];
-        if (!token) {
+        const authorization = req.headers.authorization;
+        if (!authorization) {
             return response(resp, statuses.FORBIDDEN, {payload: 'Не предоставлено токена авторизации'});
         }
-        // const token = authorization.split(' ')[1] // Bearer TOKEN
-        // if (!token) {
-        //     return response(resp, statuses.UNAUTHORIZED, {payload: 'Не указан токен'});
-        // }
+        const token = authorization.split(' ')[1] // Bearer TOKEN
+        if (!token) {
+            return response(resp, statuses.UNAUTHORIZED, {payload: 'Не указан токен'});
+        }
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
         req.user = decoded
         next()

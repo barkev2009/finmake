@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import Popup from './Popup';
+import Popup from '../components/Popup';
 
 export const ModalContext = createContext();
 

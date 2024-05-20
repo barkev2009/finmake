@@ -3,13 +3,16 @@ const { statuses } = require('../utils/consts');
 const generateJWT = require('../utils/generateJWT');
 const tryCatchWrapper = require('../utils/tryCatchWrapper');
 const bcrypt = require('bcrypt');
+const { encryptDecrypt } = require('../utils/xorer');
 
 class AuthController {
-    async getToken(req, res, next) {
+    async login(req, res, next) {
         tryCatchWrapper(
             async () => {
                 const errors = []
-                const { login, password } = req.query;
+                let { login, password } = req.body;
+                login = encryptDecrypt(login);
+                password = encryptDecrypt(password);
                 if (login !== process.env.ADMIN_LOGIN) {
                     errors.push('Неверный логин');
                 }
@@ -22,10 +25,18 @@ class AuthController {
                 }
 
                 const token = generateJWT(login);
-                res.cookie(process.env.COOKIE_TOKEN_NAME, token, {expires: new Date(Date.now() + 1000 * 60 * 5)});
-                return response(res, statuses.SUCCESS);
+                return response(res, statuses.SUCCESS, { token });
             },
             req, res, next, 'AuthController.getToken'
+        )
+    }
+
+    async checkAuth(req, res, next) {
+        tryCatchWrapper(
+            async () => {
+                const token = generateJWT(req.user.login);
+                return response(res, statuses.SUCCESS, { token });
+            }, req, res, next, 'AuthController.checkAuth'
         )
     }
 }

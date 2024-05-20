@@ -1,8 +1,22 @@
-import Landing from "./components/Landing";
+import Landing from "./routes/Landing";
+import user from './store/user';
+import { BrowserRouter } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
+import AppRouter from './routes/AppRouter';
+import { injectStores } from '@mobx-devtools/tools';
+
+injectStores(
+  { user }
+);
 
 function App() {
+  user.checkAuth();
   return (
-    <Landing />
+    <>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </>
   );
 }
 
