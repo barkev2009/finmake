@@ -11,7 +11,6 @@ class User {
     checkAuth() {
         checkAPI().then(
             (resp) => {
-                console.log(resp);
                 setCookie(process.env.REACT_APP_LOCAL_STORAGE_KEY, resp.token);
                 this.setIsAuth(true);
             }
@@ -25,7 +24,6 @@ class User {
     login(login, password) {
         loginAPI(login, password).then(
             (resp) => {
-                console.log(resp);
                 setCookie(process.env.REACT_APP_LOCAL_STORAGE_KEY, resp.token);
                 this.setIsAuth(true);
             }
