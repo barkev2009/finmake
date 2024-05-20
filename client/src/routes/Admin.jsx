@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { $authHost } from '../api';
+import { exportHandler } from '../handlers';
 
 const Admin = () => {
 
-  const [raw, setRaw] = useState('');
-
-  useEffect(
-    () => {
-      $authHost.get('api/callRequest').then(
-        ({ data: { payload } }) => {
-          setRaw(JSON.stringify(payload, false, 2));
-        }
-      )
-    }, []
-  );
+  const downloadHandler = () => {
+    $authHost.get('api/callRequest').then(
+      ({ data: { payload } }) => {
+        exportHandler(payload);
+      }
+    )
+  }
 
   return (
     <div>
       <h1>ADMIN</h1>
-      <p>{raw}</p>
+      <button onClick={downloadHandler}>Скачать отчет</button>
     </div>
   )
 }

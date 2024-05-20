@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.8",
+    "exceljs": "^4.4.0",
     "express": "^4.19.2",
     "mobx": "^6.12.3",
     "mobx-react-lite": "^4.0.7",
