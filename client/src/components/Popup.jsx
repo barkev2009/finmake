@@ -26,8 +26,8 @@ const Popup = () => {
     return (
         <Modal active={active} setActive={setActive}>
             <h1>Buy our shit!</h1>
-            <input type="text" value={name} onChange={e => setName(e.target.value)} />
-            <input type="text" value={phone_number} onChange={e => setPhoneNumber(e.target.value)} />
+            <input type="text" placeholder='Введите имя' value={name} onChange={e => setName(e.target.value)} />
+            <input type="text" placeholder='Введите номер телефона' value={phone_number} onChange={e => setPhoneNumber(e.target.value)} />
             <button disabled={disabled} onClick={buttonHandler}>SEND</button>
         </Modal>
     )
