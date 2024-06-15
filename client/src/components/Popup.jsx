@@ -26,12 +26,18 @@ const Popup = () => {
 
     return (
         <Modal active={active} setActive={setActive}>
-            <h1>Buy our shit!</h1>
-            <form onSubmit={submitHandler}>
-                <input type="text" placeholder='Введите имя' value={name} onChange={e => setName(e.target.value)} />
-                <input type="text" placeholder='Введите номер телефона' value={phone_number} onChange={e => setPhoneNumber(e.target.value)} />
-                <button type='submit' disabled={disabled} onClick={submitHandler}>SEND</button>
-            </form>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <h1>Закажите звонок:</h1>
+                <form onSubmit={submitHandler}>
+                    <div>
+                        <input type="text" placeholder='Введите имя' value={name} onChange={e => setName(e.target.value)} />
+                    </div>
+                    <div>
+                        <input type="text" placeholder='Введите номер телефона' value={phone_number} onChange={e => setPhoneNumber(e.target.value)} />
+                    </div>
+                    <button type='submit' disabled={disabled} onClick={submitHandler}>Заказать</button>
+                </form>
+            </div>
         </Modal>
     )
 }
