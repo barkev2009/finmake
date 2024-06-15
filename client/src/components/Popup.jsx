@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Modal from '../common/Modal'
 import { createCreateRequestAPI } from '../www/callRequestAPI';
 import { ModalContext } from '../routes/Landing';
+import InputMask from 'react-input-mask';
 
 const Popup = () => {
 
@@ -20,7 +21,7 @@ const Popup = () => {
     }
     useEffect(
         () => {
-            setDisabled(name === '' || phone_number === '')
+            setDisabled(name === '' || phone_number === '' || phone_number.split('_').length > 1)
         }, [name, phone_number]
     );
 
@@ -33,7 +34,13 @@ const Popup = () => {
                         <input type="text" placeholder='Введите имя' value={name} onChange={e => setName(e.target.value)} />
                     </div>
                     <div>
-                        <input type="text" placeholder='Введите номер телефона' value={phone_number} onChange={e => setPhoneNumber(e.target.value)} />
+                        <InputMask
+                            mask="+7 (999) 999-99-99"
+                            placeholder="Введите номер телефона"
+                            value={phone_number}
+                            onChange={e => setPhoneNumber(e.target.value)}
+                        />
+                        {/* <input type="text" placeholder='Введите номер телефона' value={phone_number} onChange={e => setPhoneNumber(e.target.value)} /> */}
                     </div>
                     <button type='submit' disabled={disabled} onClick={submitHandler}>Заказать</button>
                 </form>

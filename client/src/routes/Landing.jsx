@@ -1,8 +1,8 @@
 import React, { createContext, useState } from 'react'
 import Popup from '../components/Popup';
-import PopupButton from '../components/PopupButton';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Content from '../components/Content';
 
 export const ModalContext = createContext();
 
@@ -14,7 +14,7 @@ const Landing = () => {
         <ModalContext.Provider value={{ active, setActive }}>
             <div className='main_container'>
                 <Header />
-                <PopupButton />
+                <Content />
                 <Popup />
                 <Footer />
             </div>
