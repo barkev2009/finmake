@@ -46,3 +46,11 @@ code {
   max-height: 400px;
   object-fit: cover;
 }
+
+.photo_container {
+  background-image: url('./../public/person.JPEG');
+  background-size: contain;
+  width: 600px;
+  background-repeat: no-repeat;
+  margin-top: 15px;
+}
