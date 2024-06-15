@@ -1,5 +1,4 @@
 import React from 'react';
-import person from '../../img/person.JPEG';
 import { personItems } from '../../const';
 
 const PersonBlock = () => {
