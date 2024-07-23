@@ -29,18 +29,18 @@ code {
   width: 100%;
   overflow: hidden;
 }
- 
+
 .carousel-inner {
   display: flex;
   width: 600%;
   transition: transform 0.5s;
 }
- 
+
 .carousel-item {
   flex: 1;
   text-align: center;
 }
- 
+
 .carousel-item div {
   width: 100%;
   max-height: 400px;
@@ -48,9 +48,48 @@ code {
 }
 
 .photo_container {
-  background-image: url('./../public/person.JPEG');
-  background-size: contain;
-  width: 600px;
-  background-repeat: no-repeat;
   margin-top: 15px;
+  width: 50%;
+}
+
+.info_container {
+  display: flex;
+  flex-direction: row;
+}
+
+.carousel_container {
+  width: 50%;
+}
+
+.person_container {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
+.carousel_h2 {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .info_container {
+    flex-direction: column;
+  }
+
+  .carousel_container {
+    width: 100%;
+  }
+
+  .carousel_h2 {
+    width: 100%;
+  }
+
+  .photo_container {
+    width: 100%;
+  }
+  .person_container {
+    flex-direction: column;
+  }
 }

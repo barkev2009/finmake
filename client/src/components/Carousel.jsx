@@ -26,7 +26,7 @@ const Carousel = () => {
     }
 
     return (
-        <div style={{ width: '50%' }}>
+        <div className='carousel_container'>
             <div className="carousel">
                 <div className="carousel-inner">
                     {
