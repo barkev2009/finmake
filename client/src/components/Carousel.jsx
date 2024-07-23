@@ -26,16 +26,16 @@ const Carousel = () => {
     }
 
     return (
-        <div style={{ flex: '1 1 0', margin: '0 20px' }}>
+        <div style={{ width: '50%' }}>
             <div className="carousel">
                 <div className="carousel-inner">
                     {
                         carouselItems.map(
-                            (item, idx) => <div id={`c${idx + 1}`} className='carousel-item'>
+                            (item, idx) => <div id={`c${idx + 1}`} key={idx} className='carousel-item'>
                                 <h3>{item.title}</h3>
                                 {
                                     item.itemPoints.map(
-                                        point => <p>{point}</p>
+                                        (point, idx) => <p key={idx}>{point}</p>
                                     )
                                 }
                             </div>

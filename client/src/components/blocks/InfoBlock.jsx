@@ -3,9 +3,9 @@ import Carousel from '../Carousel';
 
 const InfoBlock = () => {
     return (
-        <div style={{display: 'flex', flexDirection: 'row', height: '100vh'}}>
+        <div style={{display: 'flex'}}>
             <Carousel />
-            <h2 style={{ flex: '2 1 0' }}>
+            <h2 style={{ width: '50%' }}>
                 Мы предлагаем вам комплексное бухгалтерское
                 сопровождение вашей организации, которое имеет
                 ряд стоимостных и качественных преимуществ

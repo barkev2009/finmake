@@ -1,5 +1,4 @@
 import React from 'react';
-import Carousel from './Carousel';
 import InfoBlock from './blocks/InfoBlock';
 import PersonBlock from './blocks/PersonBlock';
 
