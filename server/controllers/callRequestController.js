@@ -9,9 +9,9 @@ class CallRequestController {
     async create(req, res, next) {
         tryCatchWrapper(
             async () => {
-                const { phone_number, name } = req.body;
+                const { phone_number, name, time_start, time_end, timezone } = req.body;
                 const code = uuid.v4();
-                const callRequest = await CallRequest.create({ name, phone_number, code });
+                const callRequest = await CallRequest.create({ name, phone_number, code, time_start, time_end, timezone });
                 return response(res, statuses.SUCCESS, { payload: callRequest });
             },
             req, res, next, 'CallRequestController.create'
@@ -22,8 +22,8 @@ class CallRequestController {
         tryCatchWrapper(
             async () => {
                 const { code } = req.params;
-                let { name, phone_number } = req.body;
-                const callRequest = await CallRequest.update({ name, phone_number }, { where: { code } });
+                let { name, phone_number, time_start, time_end, timezone } = req.body;
+                const callRequest = await CallRequest.update({ name, phone_number, time_start, time_end, timezone }, { where: { code } });
                 return response(res, statuses.SUCCESS, { payload: callRequest });
             },
             req, res, next, 'CallRequestController.edit'

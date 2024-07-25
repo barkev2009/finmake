@@ -1,9 +1,10 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { carouselItems } from '../const';
 
 const Carousel = () => {
 
     const currentIndex = useRef(0);
+    const [marker, setMarker] = useState(0);
 
     function goToSlide(index) {
         const carouselItems = document.querySelectorAll('.carousel-item');
@@ -15,6 +16,7 @@ const Carousel = () => {
         currentIndex.current = index;
         const width = document.querySelector('.carousel-item').clientWidth;
         document.querySelector('.carousel-inner').style.transform = `translateX(-${currentIndex.current * width}px)`;
+        setMarker(currentIndex.current);
     }
 
     function goToNextSlide() {
@@ -24,6 +26,18 @@ const Carousel = () => {
     function goToPrevSlide() {
         goToSlide(currentIndex.current - 1);
     }
+
+    function markerHandler(index) {
+        return function() {
+            currentIndex.current= index;
+            goToSlide(index);
+        }
+    }
+
+    window.addEventListener('resize', function() {
+        goToPrevSlide();
+        goToNextSlide();
+    }, true);
 
     return (
         <div className='carousel_container'>
@@ -43,8 +57,13 @@ const Carousel = () => {
                     }
                 </div>
             </div>
-            <button onClick={goToPrevSlide}>{'<'}</button>
-            <button onClick={goToNextSlide}>{'>'}</button>
+            <div className='carousel-marker_container'>
+                {
+                    carouselItems.map( (item, idx) => <div className={`carousel-marker ${marker === idx ? 'active' : ''}`} onClick={markerHandler(idx)} key={idx}></div> )
+                }
+            </div>
+            <button className='carousel_btn left' onClick={goToPrevSlide}>{'<'}</button>
+            <button className='carousel_btn right' onClick={goToNextSlide}>{'>'}</button>
         </div>
 
     )

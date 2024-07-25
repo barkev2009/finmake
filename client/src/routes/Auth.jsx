@@ -16,7 +16,8 @@ const Auth = observer(
 
     const navigate = useNavigate();
 
-    const logIn = async () => {
+    const logIn = async (e) => {
+      e.preventDefault();
       try {
 
         user.login(login, password);
@@ -30,7 +31,7 @@ const Auth = observer(
 
     return (
       <>
-        <div>
+        <form onSubmit={logIn}>
           {error && <div  >{`Ошибка: ${error}`}</div>}
           <h2>Авторизация</h2>
           <div >
@@ -39,8 +40,8 @@ const Auth = observer(
           <div >
             <input type="password" placeholder='Введите пароль...' className="form-control mt-4" id="password_input" onChange={e => setPassword(e.target.value)} value={password} />
           </div>
-          <button type="button" className="btn btn-outline-primary" onClick={logIn} >Войти</button>
-        </div>
+          <button type="submit" className="btn btn-outline-primary" onClick={logIn} >Войти</button>
+        </form>
       </>
     )
   }
