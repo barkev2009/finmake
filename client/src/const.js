@@ -69,3 +69,109 @@ export const personItems = [
     'Владеет несколькими языками',
     'Профессиональная деятельность подтверждена сертификатами'
 ];
+export const timeZones = [
+    {
+        code: 'UTC-11',
+        value: 'UTC-11 (Самоа)'
+    },
+    {
+        code: 'UTC-10',
+        value: 'UTC-10 (Острова Кука)'
+    },
+    {
+        code: 'UTC-9',
+        value: 'UTC-9 (Аляска)'
+    },
+    {
+        code: 'UTC-8',
+        value: 'UTC-8 (Лос-Анджелес)'
+    },
+    {
+        code: 'UTC-7',
+        value: 'UTC-7 (Денвер)'
+    },
+    {
+        code: 'UTC-6',
+        value: 'UTC-6 (Чикаго)'
+    },
+    {
+        code: 'UTC-5',
+        value: 'UTC-5 (Нью-Йорк)'
+    },
+    {
+        code: 'UTC-4',
+        value: 'UTC-4 (Пуэрто-Рико)'
+    },
+    {
+        code: 'UTC-3',
+        value: 'UTC-3 (Сан-Паоло)'
+    },
+    {
+        code: 'UTC-2',
+        value: 'UTC-2 (Гренландия)'
+    },
+    {
+        code: 'UTC-1',
+        value: 'UTC-1 (Кабо-Верде)'
+    },
+    {
+        code: 'UTC+0',
+        value: 'UTC+0 (Лондон)'
+    },
+    {
+        code: 'UTC+1',
+        value: 'UTC+1 (Берлин)'
+    },
+    {
+        code: 'UTC+2',
+        value: 'UTC+2 (Калининград)'
+    },
+    {
+        code: 'UTC+3',
+        value: 'UTC+3 (Москва)'
+    },
+    {
+        code: 'UTC+4',
+        value: 'UTC+4 (Саратов)'
+    },
+    {
+        code: 'UTC+5',
+        value: 'UTC+5 (Екатеринбург)'
+    },
+    {
+        code: 'UTC+6',
+        value: 'UTC+6 (Омск)'
+    },
+    {
+        code: 'UTC+7',
+        value: 'UTC+7 (Новосибирск)'
+    },
+    {
+        code: 'UTC+8',
+        value: 'UTC+8 (Иркутск)'
+    },
+    {
+        code: 'UTC+9',
+        value: 'UTC+9 (Якутск)'
+    },
+    {
+        code: 'UTC+10',
+        value: 'UTC+10 (Владивосток)'
+    },
+    {
+        code: 'UTC+11',
+        value: 'UTC+11 (Магадан)'
+    },
+    {
+        code: 'UTC+12',
+        value: 'UTC+12 (Анадырь)'
+    },
+    {
+        code: 'UTC+13',
+        value: 'UTC+13 (Токелау)'
+    },
+    {
+        code: 'UTC+14',
+        value: 'UTC+14 (Кирибати)'
+    }
+];

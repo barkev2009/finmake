@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --main_color: #fa5941;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -72,13 +76,13 @@ code {
   height: 10px;
   border-radius: 50%;
   float: left;
-  border: 2px solid red; 
+  border: 2px solid var(--main_color); 
   margin: 0 4px;
   transition: all .3s;
 }
 .carousel-marker.active {
   transform: scale(1.4);
-  background-color: red;
+  background-color: var(--main_color);
 }
 .carousel-marker_container {
   position: absolute;
