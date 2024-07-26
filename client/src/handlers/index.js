@@ -34,6 +34,21 @@ export const exportHandler = (data) => {
             width: 20,
         },
         {
+            header: "Часовой пояс",
+            key: "timezone",
+            width: 20,
+        },
+        {
+            header: "Начальное время",
+            key: "time_start",
+            width: 20,
+        },
+        {
+            header: "Конечное время",
+            key: "time_end",
+            width: 20,
+        },
+        {
             header: "Код в базе данных",
             key: "code",
             width: 20,
@@ -41,11 +56,14 @@ export const exportHandler = (data) => {
     ];
 
     data.map(
-        async ({ name, phone_number, code, createdAt, updatedAt }, index) => {
+        async ({ name, phone_number, code, timezone, time_start, time_end, createdAt, updatedAt }, index) => {
             sheet.addRow({
                 phone_number,
                 name,
                 code,
+                timezone,
+                time_start,
+                time_end,
                 createdAt: new Date(createdAt).toLocaleString(),
                 updatedAt: new Date(updatedAt).toLocaleString(),
             });
