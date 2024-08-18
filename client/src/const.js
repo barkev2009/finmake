@@ -1,6 +1,9 @@
-export const ADMIN_ROUTE = '/admin';
-export const AUTH_ROUTE = '/auth';
-export const carouselItems = [
+export const ROUTES = {
+    ADMIN_ROUTE: '/admin',
+    AUTH_ROUTE: 'auth',
+    CALC_ROUTE: '/calculator'
+}
+export const CAROUSEL_ITEMS = [
     {
         title: 'Бухгалтерский учет в 1С',
         itemPoints: [
@@ -59,7 +62,7 @@ export const carouselItems = [
         ]
     }
 ];
-export const personItems = [
+export const PERSON_ITEMS = [
     'Главный бухгалтер крупного холдинга',
     'Главный бухгалтер с функциями финансового директора',
     'Главный бухгалтер крупного рыбопромышленного холдинга',
@@ -69,7 +72,7 @@ export const personItems = [
     'Владеет несколькими языками',
     'Профессиональная деятельность подтверждена сертификатами'
 ];
-export const timeZones = [
+export const TIME_ZONES = [
     {
         code: 'UTC-11',
         value: 'UTC-11 (Самоа)'
@@ -173,5 +176,103 @@ export const timeZones = [
     {
         code: 'UTC+14',
         value: 'UTC+14 (Кирибати)'
+    }
+];
+export const SELECT_BLOCKS = [
+    {
+        id: 'tax_system',
+        name: 'Система налогообложения',
+        items: [
+            {
+                id: 'dohod',
+                name: 'УСН "Доходы"'
+            },
+            {
+                id: 'dohod-rashod',
+                name: 'УСН "Доходы минус расходы"'
+            },
+            {
+                id: 'default',
+                name: 'ОСНО'
+            }
+        ]
+    },
+    {
+        id: 'activity_type',
+        name: 'Вид деятельности',
+        items: [
+            {
+                id: 'services',
+                name: 'Услуги'
+            },
+            {
+                id: 'marketplace',
+                name: 'Торговля на маркетплейсах'
+            },
+            {
+                id: 'it',
+                name: 'IT'
+            },
+            {
+                id: 'digital',
+                name: 'DIGITAL'
+            },
+            {
+                id: 'production',
+                name: 'Производство'
+            },
+            {
+                id: 'other',
+                name: 'Другое'
+            }
+        ]
+    },
+    {
+        id: 'num_documents',
+        name: 'Количество первичных документов от поставщиков',
+        items: [
+            {
+                id: '50',
+                name: 'До 50'
+            },
+            {
+                id: '100',
+                name: '51-100'
+            },
+            {
+                id: '150',
+                name: '101-150'
+            },
+            {
+                id: '200',
+                name: '151-200'
+            }
+        ]
+    },
+    {
+        id: 'num_services',
+        name: 'Количество реализаций на услуги (акты или накладные) без учета маркетплейсов',
+        items: [
+            {
+                id: '10',
+                name: 'До 10'
+            },
+            {
+                id: '25',
+                name: '11-25'
+            },
+            {
+                id: '50',
+                name: '26-50'
+            },
+            {
+                id: '75',
+                name: '51-75'
+            },
+            {
+                id: '100',
+                name: '76-100'
+            }
+        ]
     }
 ];

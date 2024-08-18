@@ -76,14 +76,16 @@ code {
   height: 10px;
   border-radius: 50%;
   float: left;
-  border: 2px solid var(--main_color); 
+  border: 2px solid var(--main_color);
   margin: 0 4px;
   transition: all .3s;
 }
+
 .carousel-marker.active {
   transform: scale(1.4);
   background-color: var(--main_color);
 }
+
 .carousel-marker_container {
   position: absolute;
   left: 45%;
@@ -99,6 +101,7 @@ code {
 .carousel_btn.left {
   left: 0;
 }
+
 .carousel_btn.right {
   right: 0;
 }
@@ -113,6 +116,37 @@ code {
   width: 50%;
   display: flex;
   align-items: center;
+}
+
+.calc_button {
+  width: 50%;
+  height: 40px;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+.range-body {
+  position: relative;
+  width: 80vw;
+  border: 1px solid black;
+}
+
+.range-selector {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #fa5941;
+  border-radius: 50%;
+  transform-origin: center center;
+  cursor: pointer;
+  left: 0%;
+  transform: translateX(-50%);
+}
+
+.slider-line {
+  width: 100%;
+  display: flex;
+  justify-content: space-between
 }
 
 @media (max-width: 900px) {
@@ -131,6 +165,7 @@ code {
   .photo_container {
     width: 80%;
   }
+
   .person_container {
     flex-direction: column;
   }

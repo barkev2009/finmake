@@ -3,7 +3,7 @@ import Modal from '../common/Modal'
 import { createCreateRequestAPI } from '../www/callRequestAPI';
 import { ModalContext } from '../routes/Landing';
 import InputMask from 'react-input-mask';
-import { timeZones } from '../const';
+import { TIME_ZONES } from '../const';
 import getCurrentTime from '../utils/getCurrentTime';
 
 const Popup = () => {
@@ -78,7 +78,7 @@ const Popup = () => {
                     </div>
                     <div>
                         <select value={timezone} onChange={e => setTimeZone(e.target.value)} name="timezones" id="timezone-select">
-                            {timeZones.map(item => <option key={item.code} value={item.code}>{item.value}</option>)}
+                            {TIME_ZONES.map(item => <option key={item.code} value={item.code}>{item.value}</option>)}
                         </select>
                     </div>
                     <button type='submit' disabled={disabled} onClick={submitHandler}>Заказать</button>

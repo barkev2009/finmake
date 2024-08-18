@@ -1,11 +1,12 @@
-import { ADMIN_ROUTE, AUTH_ROUTE } from "./const";
+import { ROUTES } from "./const";
 import Admin from "./routes/Admin";
 import Auth from "./routes/Auth";
+import Calculator from "./routes/Calculator";
 import Landing from "./routes/Landing";
 
 export const authRoutes = [
     {
-        path: ADMIN_ROUTE,
+        path: ROUTES.ADMIN_ROUTE,
         Component: Admin
     }
 ]
@@ -16,7 +17,11 @@ export const publicRoutes = [
         Component: Landing
     },
     {
-        path: AUTH_ROUTE,
+        path: ROUTES.AUTH_ROUTE,
         Component: Auth
+    },
+    {
+        path: ROUTES.CALC_ROUTE,
+        Component: Calculator
     }
 ]

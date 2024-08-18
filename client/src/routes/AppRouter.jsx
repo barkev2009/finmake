@@ -3,7 +3,7 @@ import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import user from '../store/user'
 import { authRoutes, publicRoutes } from '../routes'
-import { AUTH_ROUTE } from '../const'
+import { ROUTES } from '../const'
 
 const AppRouter = observer(
     () => {
@@ -19,7 +19,7 @@ const AppRouter = observer(
                         ({ path, Component }) => <Route key={path} path={path} Component={Component} exact />
                     )
                 }
-                <Route exact path='*' element={<Navigate to={AUTH_ROUTE} />} />
+                <Route exact path='*' element={<Navigate to={ROUTES.AUTH_ROUTE} />} />
             </Routes>
         )
     }

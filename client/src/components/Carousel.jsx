@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { carouselItems } from '../const';
+import { CAROUSEL_ITEMS } from '../const';
 
 const Carousel = () => {
 
@@ -44,7 +44,7 @@ const Carousel = () => {
             <div className="carousel">
                 <div className="carousel-inner">
                     {
-                        carouselItems.map(
+                        CAROUSEL_ITEMS.map(
                             (item, idx) => <div id={`c${idx + 1}`} key={idx} className='carousel-item'>
                                 <h3>{item.title}</h3>
                                 {
@@ -59,7 +59,7 @@ const Carousel = () => {
             </div>
             <div className='carousel-marker_container'>
                 {
-                    carouselItems.map( (item, idx) => <div className={`carousel-marker ${marker === idx ? 'active' : ''}`} onClick={markerHandler(idx)} key={idx}></div> )
+                    CAROUSEL_ITEMS.map( (item, idx) => <div className={`carousel-marker ${marker === idx ? 'active' : ''}`} onClick={markerHandler(idx)} key={idx}></div> )
                 }
             </div>
             <button className='carousel_btn left' onClick={goToPrevSlide}>{'<'}</button>

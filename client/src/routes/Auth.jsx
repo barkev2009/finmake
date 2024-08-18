@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { ADMIN_ROUTE } from '../const';
+import { ROUTES } from '../const';
 import { observer } from 'mobx-react-lite';
 import user from '../store/user';
 import { useAuthorization } from '../hooks';
@@ -22,7 +22,7 @@ const Auth = observer(
 
         user.login(login, password);
         setError(null);
-        navigate(ADMIN_ROUTE);
+        navigate(ROUTES.ADMIN_ROUTE);
       } catch (error) {
         setError(error.response.data.message);
       }

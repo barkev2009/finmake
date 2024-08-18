@@ -1,5 +1,5 @@
 import React from 'react';
-import { personItems } from '../../const';
+import { PERSON_ITEMS } from '../../const';
 import imageLink from './../../img/person.JPEG'
 
 const PersonBlock = () => {
@@ -10,7 +10,7 @@ const PersonBlock = () => {
             </div>
             <div style={{ padding: '0 10px' }}>
                 {
-                    personItems.map(
+                    PERSON_ITEMS.map(
                         (item, idx) => <p key={idx}>{item}</p>
                     )
                 }
