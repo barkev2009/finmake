@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCalcParams } from '../../store/calcSlice';
 
-const SliderContainer = ({ length = 5, id, step = 1 }) => {
+const SliderContainer = ({ length = 5, id, step = 1, name }) => {
 
     const isClicked = useRef(false);
     const dispatch = useDispatch();
@@ -47,10 +47,10 @@ const SliderContainer = ({ length = 5, id, step = 1 }) => {
                 document.querySelector(`#${id} .range-outer`).style.width = `${selectorValue}%`;
                 if (selectorValue * length / 100 - Math.floor(selectorValue * length / 100) > 0.95) {
                     setValue(Math.floor(selectorValue * length / 100) + 1);
-                    dispatch(setCalcParams({id, value: Math.floor(selectorValue * length / 100) + 1}));
+                    dispatch(setCalcParams({ id, value: Math.floor(selectorValue * length / 100) + 1 }));
                 } else {
                     setValue(Math.floor(selectorValue * length / 100));
-                    dispatch(setCalcParams({id, value: Math.floor(selectorValue * length / 100)}));
+                    dispatch(setCalcParams({ id, value: Math.floor(selectorValue * length / 100) }));
                 }
             }
         }, [selectorValue]
@@ -87,19 +87,22 @@ const SliderContainer = ({ length = 5, id, step = 1 }) => {
     }
 
     return (
-        <div id={id} className='range-body' onMouseMove={sliderHandler} onMouseDown={downHandler} onMouseUp={upHandler}>
-            {/* <div id={id} className='range-body'> */}
-            <div className="range-inner"></div>
-            <div className="range-outer"></div>
-            <div className="range-selector">
-                <div className="tooltip">{value}</div>
-            </div>
-            <div className="slider-line">
-                {
-                    [...Array(length / step + 1).keys()].map(i => <span style={{ left: `${i * step / length * 100}%`, right: `${i * step === length ? 0 : ''}%` }} key={i}>{i * step}</span>)
-                }
-            </div>
-        </div >
+        <div className='slider-container'>
+            <label htmlFor={id}>{name}</label>
+            <div id={id} className='range-body' onMouseMove={sliderHandler} onMouseDown={downHandler} onMouseUp={upHandler}>
+                <div className="range-inner"></div>
+                <div className="range-outer"></div>
+                <div className="range-selector">
+                    <div className="tooltip">{value}</div>
+                </div>
+                <div className="slider-line">
+                    {
+                        [...Array(length / step + 1).keys()].map(i => <span style={{ left: `${i * step / length * 100}%`, right: `${i * step === length ? 0 : ''}%` }} key={i}>{i * step}</span>)
+                    }
+                </div>
+            </div >
+        </div>
+
     )
 }
 

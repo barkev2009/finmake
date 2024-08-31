@@ -1,5 +1,5 @@
 import React from 'react'
-import { SELECT_BLOCKS } from '../../const'
+import { SELECT_BLOCKS, SLIDERS } from '../../const'
 import SelectContainer from './SelectContainer'
 import SliderContainer from '../slider/SliderContainer'
 import ResultCard from './ResultCard'
@@ -15,8 +15,11 @@ const CalculatorContainer = () => {
                     )
                 }
             </div>
-            <SliderContainer length={5} id={'marketplaceCount'} />
-            <SliderContainer length={40} id={'employeeCount'} step={5} />
+            {
+                SLIDERS.map(
+                    item => <SliderContainer length={item.length} id={item.id} step={item.step} name={item.name} />
+                )
+            }
         </div>
     )
 }

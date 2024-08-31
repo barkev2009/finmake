@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { SELECT_BLOCKS } from '../const';
+import { SELECT_BLOCKS, SLIDERS } from '../const';
 import { calculate } from '../utils/calculator';
 
 const initialState = {
@@ -7,8 +7,7 @@ const initialState = {
     result: 0
 };
 SELECT_BLOCKS.forEach(item => Object.assign(initialState.params, { [item.id]: 'select' }));
-initialState.params['marketplaceCount'] = 0;
-initialState.params['employeeCount'] = 0;
+SLIDERS.forEach(item => Object.assign(initialState.params, { [item.id]: 0 }));
 
 export const calcSlice = createSlice({
   name: 'calc',

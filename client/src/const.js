@@ -72,6 +72,20 @@ export const PERSON_ITEMS = [
     'Владеет несколькими языками',
     'Профессиональная деятельность подтверждена сертификатами'
 ];
+export const SLIDERS = [
+    {
+        id: 'marketplaceCount',
+        name: 'Количество маркетплейсов',
+        length: 5,
+        step: 1
+    },
+    {
+        id: 'employeeCount',
+        name: 'Количество сотрудников',
+        length: 40,
+        step: 5
+    }
+];
 export const TIME_ZONES = [
     {
         code: 'UTC-11',
