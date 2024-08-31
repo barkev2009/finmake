@@ -1,9 +1,12 @@
 import React, { useEffect, useRef } from 'react'
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setCalcParams } from '../../store/calcSlice';
 
 const SliderContainer = ({ length = 5, id, step = 1 }) => {
 
     const isClicked = useRef(false);
+    const dispatch = useDispatch();
     const [value, setValue] = useState(0);
     const [selectorValue, setSelectorValue] = useState(0);
     const isVisible = useRef(document.querySelector(`#${id}.range-body`));
@@ -44,8 +47,10 @@ const SliderContainer = ({ length = 5, id, step = 1 }) => {
                 document.querySelector(`#${id} .range-outer`).style.width = `${selectorValue}%`;
                 if (selectorValue * length / 100 - Math.floor(selectorValue * length / 100) > 0.95) {
                     setValue(Math.floor(selectorValue * length / 100) + 1);
+                    dispatch(setCalcParams({id, value: Math.floor(selectorValue * length / 100) + 1}));
                 } else {
                     setValue(Math.floor(selectorValue * length / 100));
+                    dispatch(setCalcParams({id, value: Math.floor(selectorValue * length / 100)}));
                 }
             }
         }, [selectorValue]

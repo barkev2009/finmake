@@ -1,16 +1,43 @@
-import Landing from "./routes/Landing";
-import user from './store/user';
 import { BrowserRouter } from 'react-router-dom';
-import { observer } from 'mobx-react-lite';
 import AppRouter from './routes/AppRouter';
-import { injectStores } from '@mobx-devtools/tools';
+import { useDispatch } from 'react-redux';
+import { useCallback, useEffect, useState } from 'react';
+import { checkAPI } from './www/authAPI';
+import { setIsAuth, setUser } from './store/userSlice';
 
-injectStores(
-  { user }
-);
 
 function App() {
-  user.checkAuth();
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
+
+  const checkAuth = useCallback(
+    () => {
+      checkAPI()
+        .then(
+          user => {
+            dispatch(setUser(user));
+            dispatch(setIsAuth(true));
+          }
+        )
+        .catch(
+          (resp) => {
+            console.log(resp)
+          }
+        )
+        .finally(setLoading(false));
+    }, [dispatch]
+  )
+
+  useEffect(
+    () => {
+      checkAuth()
+    }, [checkAuth]
+  )
+
+  if (loading) {
+    return <div>LOADING</div>
+  }
+
   return (
     <>
       <BrowserRouter>

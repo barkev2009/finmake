@@ -1,6 +1,6 @@
 export const ROUTES = {
     ADMIN_ROUTE: '/admin',
-    AUTH_ROUTE: 'auth',
+    AUTH_ROUTE: '/auth',
     CALC_ROUTE: '/calculator'
 }
 export const CAROUSEL_ITEMS = [

@@ -1,4 +1,4 @@
-export const defineResult = (params) => {
+export const calculate = (params) => {
     let result = 0
     switch (params.tax_system) {
         case 'dohod':
@@ -11,7 +11,7 @@ export const defineResult = (params) => {
             result = 4900;
             break;
         default:
-            result = 0;
+            result = 4900;
             break;
     }
     return result;

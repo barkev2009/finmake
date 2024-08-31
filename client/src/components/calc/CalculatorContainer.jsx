@@ -1,12 +1,13 @@
 import React from 'react'
 import { SELECT_BLOCKS } from '../../const'
 import SelectContainer from './SelectContainer'
-import { CalcContextProvider } from '../../contexts/CalcContext/CalcContextProvider'
 import SliderContainer from '../slider/SliderContainer'
+import ResultCard from './ResultCard'
 
 const CalculatorContainer = () => {
     return (
-        <CalcContextProvider>
+        <div>
+            <ResultCard />
             <div>
                 {
                     SELECT_BLOCKS.map(
@@ -14,9 +15,9 @@ const CalculatorContainer = () => {
                     )
                 }
             </div>
-            <SliderContainer length={5} id={'slider_1'} />
-            <SliderContainer length={40} id={'slider_2'} step={5} />
-        </CalcContextProvider>
+            <SliderContainer length={5} id={'marketplaceCount'} />
+            <SliderContainer length={40} id={'employeeCount'} step={5} />
+        </div>
     )
 }
 

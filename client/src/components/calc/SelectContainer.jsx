@@ -1,14 +1,14 @@
-import React, {  useState } from 'react'
-import { useCalcContext } from '../../contexts/CalcContext/CalcContextProvider';
+import React, { useState } from 'react'
+import { setCalcParams } from '../../store/calcSlice';
+import { useDispatch } from 'react-redux';
 
 const SelectContainer = ({ selectItem }) => {
 
     const [option, setOption] = useState('select');
-    const {setCalcParams} = useCalcContext();
-
+    const dispatch = useDispatch();
     const optionHandler = (e) => {
         setOption(e.target.value);
-        setCalcParams(selectItem.id, e.target.value);
+        dispatch(setCalcParams({ id: selectItem.id, value: e.target.value }));
     }
 
     return (
