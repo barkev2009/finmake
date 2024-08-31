@@ -5,9 +5,6 @@ import imageLink from './../../img/person.JPEG'
 const PersonBlock = () => {
     return (
         <div className='person_container'>
-            <div style={{display: 'flex', justifyContent: 'center'}}>
-                <img src={imageLink} alt="person" className='photo_container' />
-            </div>
             <div style={{ padding: '0 10px' }}>
                 {
                     PERSON_ITEMS.map(

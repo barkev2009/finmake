@@ -5,7 +5,7 @@ import PhoneLink from './links/PhoneLink'
 const Footer = () => {
     return (
         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', position: 'relative', bottom: 0}}>
-            <div>Генеральный директор: Иртуганова С.Н.</div>
+            <div>Генеральный директор: Другой человек</div>
             <MailLink />
             <PhoneLink />
         </div>
