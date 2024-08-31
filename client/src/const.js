@@ -236,6 +236,10 @@ export const SELECT_BLOCKS = [
                 name: 'Производство'
             },
             {
+                id: 'construction',
+                name: 'Строительство'
+            },
+            {
                 id: 'other',
                 name: 'Другое'
             }
