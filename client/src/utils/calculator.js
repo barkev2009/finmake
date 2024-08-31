@@ -11,7 +11,7 @@ export const calculate = (params) => {
             result = 4900;
             break;
         default:
-            result = 4900;
+            result = 0;
             break;
     }
     return result;
