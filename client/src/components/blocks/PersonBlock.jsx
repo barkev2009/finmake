@@ -1,6 +1,5 @@
 import React from 'react';
 import { PERSON_ITEMS } from '../../const';
-import imageLink from './../../img/person.JPEG'
 
 const PersonBlock = () => {
     return (
