@@ -10,4 +10,4 @@ app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(PORT, () => console.log(`Wedding App Client started on port ${PORT}`));
+app.listen(PORT, () => console.log(`Finmake Client started on port ${PORT}`));
