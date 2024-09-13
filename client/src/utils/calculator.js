@@ -12,7 +12,7 @@ export const calculate = (params) => {
                 case 'production':
                 case 'construction':
                 case 'marketplace':
-                case 'other':
+                case 'wholesale':
                     result = 19900;
                     break;
                 default:

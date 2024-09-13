@@ -224,6 +224,10 @@ export const SELECT_BLOCKS = [
                 name: 'Торговля на маркетплейсах'
             },
             {
+                id: 'wholesale',
+                name: 'Оптовая торговля'
+            },
+            {
                 id: 'it',
                 name: 'IT'
             },
@@ -238,10 +242,6 @@ export const SELECT_BLOCKS = [
             {
                 id: 'construction',
                 name: 'Строительство'
-            },
-            {
-                id: 'other',
-                name: 'Другое'
             }
         ]
     },
