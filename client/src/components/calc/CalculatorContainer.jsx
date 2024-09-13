@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SELECT_BLOCKS, SLIDERS } from '../../const'
 import SelectContainer from './SelectContainer'
 import SliderContainer from '../slider/SliderContainer'
 import ResultCard from './ResultCard'
 
 const CalculatorContainer = () => {
+
     return (
         <div>
             <ResultCard />
