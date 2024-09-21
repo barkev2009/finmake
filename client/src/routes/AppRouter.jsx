@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { authRoutes, publicRoutes } from '../routes'
-import { ROUTES } from '../const'
+import { ROUTES, SELECT_BLOCKS } from '../const'
 import { useSelector } from 'react-redux'
 
 const AppRouter = () => {
 
     const isAuth = useSelector(state => state.user.isAuth);
+
+    useEffect(
+        () => {
+            if (window.location.hostname === 'localhost') {
+                console.log(SELECT_BLOCKS);
+            }
+        }, []
+    );
 
     return (
         <Routes>

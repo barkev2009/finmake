@@ -34,10 +34,10 @@ const Carousel = () => {
         }
     }
 
-    window.addEventListener('resize', function() {
-        goToPrevSlide();
-        goToNextSlide();
-    }, true);
+    // window.addEventListener('resize', function() {
+    //     goToPrevSlide();
+    //     goToNextSlide();
+    // }, true);
 
     return (
         <div className='carousel_container'>
