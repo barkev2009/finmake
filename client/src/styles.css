@@ -37,8 +37,9 @@ code {
 
 .carousel-inner {
   display: flex;
-  width: 600%;
-  transition: transform 0.5s;
+  width: 200%;
+  height: 500px;
+  /* transition: transform 0.5s; */
 }
 
 .carousel-item {
@@ -65,7 +66,7 @@ code {
 }
 
 .carousel_container {
-  width: 50%;
+  width: 100%;
   position: relative;
   padding-bottom: 20px;
 }
@@ -223,8 +224,8 @@ code {
     flex-direction: column;
   }
 
-  .carousel_container {
-    width: 100%;
+  .carousel-inner {
+    width: 400%;
   }
 
   .carousel_h2 {
