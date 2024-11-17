@@ -219,6 +219,31 @@ code {
   height: 50px;
 }
 
+.admin_container {
+  padding: 15px;
+}
+
+.commits_container {
+  height: 500px;
+  overflow-y: auto;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.commit {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.commit span.additions {
+  color: green;
+}
+.commit span.deletions {
+  color: #cb4b37;
+}
+
 @media (max-width: 900px) {
   .info_container {
     flex-direction: column;
