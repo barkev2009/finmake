@@ -1,16 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from './userSlice';
 import calcReducer from './calcSlice';
+import commitsReducer from './commitsSlice';
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
-    calc: calcReducer
-  },
-  // middleware: (getDefaultMiddleware) => 
-  //   getDefaultMiddleware({
-  //     serializableCheck: {
-  //       ignoredActions: ['ratings/sortRatings']
-  //     }
-  //   })
+    calc: calcReducer,
+    commits: commitsReducer
+  }
 });

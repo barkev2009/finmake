@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { $authHost } from '../api';
 import { exportHandler } from '../handlers';
-import { Octokit } from 'octokit';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCommit, fetchCommits } from '../store/commitsSlice';
 
 const Admin = () => {
 
-  const [commits, setCommits] = useState([]);
-  const [counter, setCounter] = useState(0);
-  const [total, setTotal] = useState(0);
+  const commits = useSelector(state => state.commits.commits);
+  const refs = useSelector(state => state.commits.refs);
+  const total = useSelector(state => state.commits.total);
+  const dispatch = useDispatch()
 
   const downloadHandler = () => {
     $authHost.get('api/callRequest').then(
@@ -15,6 +17,17 @@ const Admin = () => {
         exportHandler(payload);
       }
     )
+  }
+
+  const defineFileColor = (file) => {
+    switch (file.status) {
+      case 'added':
+        return 'green';
+      case 'modified':
+        return 'darkOrange';
+      default:
+        return 'red';
+    }
   }
 
   const calcTime = (date1, date2) => {
@@ -28,32 +41,13 @@ const Admin = () => {
 
   useEffect(
     () => {
-      let items = []
-      const octokit = new Octokit({ auth: process.env.REACT_APP_GITHUB_TOKEN });
-      octokit.request("GET /repos/{owner}/{repo}/commits", {
-        owner: process.env.REACT_APP_GITHUB_OWNER,
-        repo: process.env.REACT_APP_GITHUB_REPO,
-        per_page: 10
-      }).then(
-        async ({ data }) => {
-          setTotal(data.length);
-          for (let i = 0; i < data.length; i++) {
-            setCounter(i + 1);
-            const resp = await octokit.request('GET /repos/{owner}/{repo}/commits/{ref}',
-              {
-                owner: process.env.REACT_APP_GITHUB_OWNER,
-                repo: process.env.REACT_APP_GITHUB_REPO,
-                ref: data[i].sha
-              }
-            );
-            if (items.filter(j => j.sha === data[i].sha).length === 0) {
-              items.push(resp.data);
-            }
-          }
-          return items;
-        }
-      ).then(() => setCommits(items));
+      dispatch(fetchCommits({ per_page: 10 }))
     }, []
+  );
+  useEffect(
+    () => {
+      refs.forEach(({ ref }) => dispatch(fetchCommit({ ref })));
+    }, [refs]
   );
 
   return (
@@ -62,12 +56,12 @@ const Admin = () => {
       <button onClick={downloadHandler}>Скачать отчет</button>
       <h2>Last 10 commits</h2>
       <div className="commits_container">
-        {commits.length === 0 ? <h3>{`Loading... (${counter} / ${total})`}</h3> :
+        {commits.length === 0 ? <h3>{`Loading... `}</h3> :
           commits.map((commit, idx) => <div key={idx} className='commit'>
             <h3>{commit.commit.message}</h3>
             <div>
               {commit.files.map(file => <div key={file.sha}>
-                <span>{file.filename}</span>
+                <span style={{ color: defineFileColor(file) }}>{file.filename}</span>
                 <span className='additions'>{` +${file.additions} `}</span>
                 <span>/</span>
                 <span className='deletions'>{` -${file.deletions}`}</span>
