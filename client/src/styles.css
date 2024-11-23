@@ -1,16 +1,14 @@
 * {
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 :root {
-  --main_color: #fa5941;
+  --main_color: #B00819;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -20,19 +18,46 @@ code {
     monospace;
 }
 
+/* #root {
+  display: flex;
+  justify-content: center;
+} */
+
 .main_container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0 15px;
+}
+
+.header_container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.header_container nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1100px;
+  width: 100%;
 }
 
 .carousel {
   position: relative;
   width: 100%;
+  display: flex;
+  padding: 0 45px;
+  max-width: 1100px;
+}
+
+.carousel_space {
+  position: relative;
+  width: 100%;
   overflow: hidden;
-  padding: 0 20px;
 }
 
 .carousel-inner {
@@ -45,13 +70,45 @@ code {
 .carousel-item {
   flex: 1;
   text-align: center;
-  padding: 0 10px;
+  margin: 0 30px;
+  padding: 0 35px;
+  border-radius: 30px;
+  background-color: white;
 }
 
 .carousel-item div {
   width: 100%;
   max-height: 400px;
   object-fit: cover;
+}
+
+
+.carousel-item>.title-block {
+  padding: 35px 0;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-item>.title-block>.icon {
+  width: 65px;
+  height: 65px;
+  background-color: #d9d9d9;
+}
+
+.carousel-item>.title-block h3 {
+  margin: 0;
+  margin-left: 20px;
+  color: var(--main_color);
+  font-weight: 600;
+}
+
+.carousel-item li {
+  text-align: start;
+  font-size: 1rem;
+}
+
+.carousel-item li::marker {
+  font-size: .6rem;
 }
 
 .photo_container {
@@ -69,7 +126,27 @@ code {
   width: 100%;
   position: relative;
   padding-bottom: 20px;
+  background-color: var(--main_color);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 20px;
 }
+
+.carousel_container .title {
+  text-transform: uppercase;
+  color: white;
+  text-align: start;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+.carousel_container>.title-block {
+  width: 100%;
+  max-width: 1100px;
+}
+
 
 .carousel-marker {
   cursor: pointer;
@@ -96,11 +173,13 @@ code {
   position: absolute;
   top: 0%;
   height: 100%;
-  width: 20px;
+  width: 30px;
+  cursor: pointer;
 }
 
 .carousel_btn.left {
   left: 0;
+  transform: rotate(180deg);
 }
 
 .carousel_btn.right {
@@ -142,6 +221,7 @@ code {
   cursor: pointer;
   margin-top: 30px;
 }
+
 .range-body::after {
   content: '';
   background-color: black;
@@ -163,7 +243,7 @@ code {
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: #fa5941;
+  background-color: var(--main_color);
   border-radius: 50%;
   transform-origin: center center;
   cursor: pointer;
@@ -212,11 +292,12 @@ code {
 }
 
 .result_card {
-  background-color: #fa5941;
+  background-color: var(--main_color);
   color: white;
   font-weight: bold;
   border-radius: 10px;
   height: 50px;
+  margin-top: 50px;
 }
 
 .admin_container {
@@ -240,8 +321,31 @@ code {
 .commit span.additions {
   color: green;
 }
+
 .commit span.deletions {
   color: #cb4b37;
+}
+
+.popupBtn {
+  border-radius: 30px;
+  background-color: var(--main_color);
+  color: azure;
+  height: 2rem;
+  width: 10rem;
+  font-size: .8rem;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  #root {
+    display: block;
+  }
+
+  .carousel-item li {
+    font-size: 1.4vw;
+  }
 }
 
 @media (max-width: 900px) {
@@ -263,5 +367,15 @@ code {
 
   .person_container {
     flex-direction: column;
+  }
+
+  .carousel-item li {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-item li {
+    font-size: 2.5vw;
   }
 }

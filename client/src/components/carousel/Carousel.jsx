@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { CAROUSEL_ITEMS } from '../const';
+import { CAROUSEL_ITEMS } from '../../const';
+import CarouselItem from './CarouselItem';
+import CarouselArrow from '../../svg/CarouselArrow';
 
 const Carousel = () => {
 
@@ -28,7 +30,7 @@ const Carousel = () => {
         let sign = 0;
 
         if (index > currentIndex.current) {
-            sign = - 2 * width;
+            sign = - 2 * (width + 60);
         }
         if (index < 0) {
             index = CAROUSEL_ITEMS.length - 1;
@@ -69,41 +71,39 @@ const Carousel = () => {
     useEffect(
         () => {
             const width = document.querySelector('.carousel-item').clientWidth;
-            document.querySelector('.carousel-inner').style.transform = `translateX(-${width}px)`;
+            document.querySelector('.carousel-inner').style.transform = `translateX(-${width + 60}px)`;
         }, []
     );
     useEffect(
         () => {
             const width = document.querySelector('.carousel-item').clientWidth;
-            document.querySelector('.carousel-inner').style.transform = `translateX(-${width}px)`;
+            document.querySelector('.carousel-inner').style.transform = `translateX(-${width + 60}px)`;
         }, [items]
     );
 
     return (
         <div className='carousel_container'>
+            <div className="title-block">
+                <h3 className='title'>Услуги</h3>
+            </div>
             <div className="carousel">
-                <div className="carousel-inner">
-                    {
-                        items.map(
-                            (item, idx) => <div id={`c${idx + 1}`} key={idx} className='carousel-item'>
-                                <h3>{item.title}</h3>
-                                {
-                                    item.itemPoints.map(
-                                        (point, idx) => <p key={idx}>{point}</p>
-                                    )
-                                }
-                            </div>
-                        )
-                    }
+                <CarouselArrow className={'carousel_btn left'} onClick={goToPrevSlide} />
+                <div className="carousel_space">
+                    <div className="carousel-inner">
+                        {
+                            items.map(
+                                (item, idx) => <CarouselItem item={item} idx={idx} />
+                            )
+                        }
+                    </div>
                 </div>
+                <CarouselArrow className={'carousel_btn right'} onClick={goToNextSlide} />
             </div>
             {/* <div className='carousel-marker_container'>
                 {
                     CAROUSEL_ITEMS.map((item, idx) => <div className={`carousel-marker ${marker === idx ? 'active' : ''}`} onClick={markerHandler(idx)} key={idx}></div>)
                 }
             </div> */}
-            <button className='carousel_btn left' onClick={goToPrevSlide}>{'<'}</button>
-            <button className='carousel_btn right' onClick={goToNextSlide}>{'>'}</button>
         </div>
 
     )
