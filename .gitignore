@@ -6,3 +6,4 @@ tests
 .git
 package-lock.json
 config
+refresh.js
