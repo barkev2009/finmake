@@ -26,7 +26,7 @@ const SelectContainer = ({ selectItem }) => {
     );
 
     return (
-        <div>
+        <div className='select_container'>
             <label htmlFor={selectItem.id}>{selectItem.name}</label>
             <div>
                 <select onChange={e => optionHandler(e.target.value)} name={selectItem.id} id={selectItem.id} defaultValue={'select'}>

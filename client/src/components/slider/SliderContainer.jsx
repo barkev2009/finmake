@@ -10,6 +10,7 @@ const SliderContainer = ({ length = 5, id, step = 1, name }) => {
     const [value, setValue] = useState(0);
     const [selectorValue, setSelectorValue] = useState(0);
     const isVisible = useRef(document.querySelector(`#${id}.range-body`));
+
     useEffect(
         () => {
             if (isVisible.current !== undefined) {
@@ -38,7 +39,7 @@ const SliderContainer = ({ length = 5, id, step = 1, name }) => {
                     }
                 );
             }
-        }, isVisible.current
+        }, [isVisible.current]
     );
     useEffect(
         () => {
@@ -86,6 +87,15 @@ const SliderContainer = ({ length = 5, id, step = 1, name }) => {
         setPerc((e.touches !== undefined && e.touches.length > 0) ? e.touches[0].clientX : e.clientX);
     }
 
+    const tickStylesArray = [...Array(length / step + 1).keys()]
+        .map(
+            i => ({
+                key: i,
+                left: `${i * step / length * 100}%`,
+                right: String(i * step / length * 100) === '100' ? '0%' : null
+            })
+        )
+
     return (
         <div className='slider-container'>
             <label htmlFor={id}>{name}</label>
@@ -97,7 +107,7 @@ const SliderContainer = ({ length = 5, id, step = 1, name }) => {
                 </div>
                 <div className="slider-line">
                     {
-                        [...Array(length / step + 1).keys()].map(i => <span style={{ left: `${i * step / length * 100}%`, right: `${i * step === length ? 0 : ''}%` }} key={i}>{i * step}</span>)
+                        tickStylesArray.map(({ key, left, right }) => <span key={key} style={{ left, right }}>{key * step}</span>)
                     }
                 </div>
             </div >

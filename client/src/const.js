@@ -18,7 +18,7 @@ export const TABS = [
 export const PROGRESS_STATS = [
     {
         name: 'Хедер',
-        progress: 100
+        progress: 95
     },
     {
         name: 'О нас',
@@ -27,7 +27,7 @@ export const PROGRESS_STATS = [
     },
     {
         name: 'Услуги',
-        progress: 90,
+        progress: 85,
         id: 'carousel_container'
     },
     {
@@ -42,7 +42,7 @@ export const PROGRESS_STATS = [
     },
     {
         name: 'Калькулятор',
-        progress: 60,
+        progress: 95,
         id: 'calculator_container'
     },
     {
@@ -261,8 +261,30 @@ export const SELECT_BLOCKS = [
         ]
     },
     {
+        id: 'num_documents',
+        name: 'Количество первичных документов от поставщиков',
+        items: [
+            {
+                id: '50',
+                name: 'До 50'
+            },
+            {
+                id: '100',
+                name: '51-100'
+            },
+            {
+                id: '150',
+                name: '101-150'
+            },
+            {
+                id: '200',
+                name: '151-200'
+            }
+        ]
+    },
+    {
         id: 'activity_type',
-        name: 'Вид деятельности',
+        name: 'Основной вид деятельности',
         items: [
             {
                 id: 'services',
@@ -291,28 +313,6 @@ export const SELECT_BLOCKS = [
             {
                 id: 'construction',
                 name: 'Строительство'
-            }
-        ]
-    },
-    {
-        id: 'num_documents',
-        name: 'Количество первичных документов от поставщиков',
-        items: [
-            {
-                id: '50',
-                name: 'До 50'
-            },
-            {
-                id: '100',
-                name: '51-100'
-            },
-            {
-                id: '150',
-                name: '101-150'
-            },
-            {
-                id: '200',
-                name: '151-200'
             }
         ]
     },
