@@ -8,7 +8,7 @@ const Screens = () => {
                 PROGRESS_STATS.map(p => <div className='stat'>
                     <h3>{p.name}</h3>
                     <div className='progress_bar'>
-                        <div className="progress" style={{width: `${p.progress}%`}}></div>
+                        <div className="progress" style={{width: `${p.progress}%`, backgroundColor: `${p.progress < 100 ? 'var(--main_color)' : 'green'}`}}></div>
                         <p style={{color: `${p.progress >= 60 ? 'white' : 'black'}`}} >{p.progress + '%'}</p>
                     </div>
                 </div>

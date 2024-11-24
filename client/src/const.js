@@ -18,27 +18,32 @@ export const TABS = [
 export const PROGRESS_STATS = [
     {
         name: 'Хедер',
-        progress: 30
+        progress: 100
     },
     {
-        name: 'Первый экран',
-        progress: 10
+        name: 'О нас',
+        progress: 10,
+        id: 'about_us'
     },
     {
         name: 'Услуги',
-        progress: 90
+        progress: 90,
+        id: 'carousel_container'
     },
     {
         name: 'Отрасли',
-        progress: 0
+        progress: 0,
+        id: ''
     },
     {
-        name: 'Этапы работы',
-        progress: 0
+        name: 'Этапы',
+        progress: 0,
+        id: ''
     },
     {
         name: 'Калькулятор',
-        progress: 60
+        progress: 60,
+        id: 'calculator_container'
     },
     {
         name: 'Футер',

@@ -82,7 +82,7 @@ const Carousel = () => {
     );
 
     return (
-        <div className='carousel_container'>
+        <div id='carousel_container'>
             <div className="title-block">
                 <h3 className='title'>Услуги</h3>
             </div>
@@ -92,7 +92,7 @@ const Carousel = () => {
                     <div className="carousel-inner">
                         {
                             items.map(
-                                (item, idx) => <CarouselItem item={item} idx={idx} />
+                                (item, idx) => <CarouselItem key={idx} item={item} idx={idx} />
                             )
                         }
                     </div>

@@ -7,7 +7,7 @@ import ResultCard from './ResultCard'
 const CalculatorContainer = () => {
 
     return (
-        <div>
+        <div id='calculator_container'>
             <ResultCard />
             <div>
                 {
@@ -18,7 +18,7 @@ const CalculatorContainer = () => {
             </div>
             {
                 SLIDERS.map(
-                    item => <SliderContainer length={item.length} id={item.id} step={item.step} name={item.name} />
+                    item => <SliderContainer key={item.id} length={item.length} id={item.id} step={item.step} name={item.name} />
                 )
             }
         </div>
