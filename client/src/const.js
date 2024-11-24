@@ -3,6 +3,50 @@ export const ROUTES = {
     AUTH_ROUTE: '/auth',
     CALC_ROUTE: '/calculator'
 }
+
+export const TABS = [
+    {
+        name: 'Screens',
+        id: 'screens'
+    },
+    {
+        name: 'Last 10 commits',
+        id: 'commits'
+    }
+];
+
+export const PROGRESS_STATS = [
+    {
+        name: 'Хедер',
+        progress: 30
+    },
+    {
+        name: 'Первый экран',
+        progress: 10
+    },
+    {
+        name: 'Услуги',
+        progress: 90
+    },
+    {
+        name: 'Отрасли',
+        progress: 0
+    },
+    {
+        name: 'Этапы работы',
+        progress: 0
+    },
+    {
+        name: 'Калькулятор',
+        progress: 60
+    },
+    {
+        name: 'Футер',
+        progress: 30
+    }
+];
+
+
 export const CAROUSEL_ITEMS = [
     {
         title: 'Бухгалтерский учет в 1С',

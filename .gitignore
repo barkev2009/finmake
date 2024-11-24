@@ -7,3 +7,4 @@ tests
 package-lock.json
 config
 refresh.js
+refresh.sh
