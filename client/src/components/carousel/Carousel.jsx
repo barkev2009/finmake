@@ -27,10 +27,11 @@ const Carousel = () => {
 
     function goToSlide(index) {
         const width = document.querySelector('.carousel-item').clientWidth;
+        const margin = Number(window.getComputedStyle(document.querySelector('.carousel-item')).marginLeft.replace('px', ''));
         let sign = 0;
 
         if (index > currentIndex.current) {
-            sign = - 2 * (width + 60);
+            sign = - 2 * (width + margin * 2);
         }
         if (index < 0) {
             index = CAROUSEL_ITEMS.length - 1;
@@ -71,13 +72,15 @@ const Carousel = () => {
     useEffect(
         () => {
             const width = document.querySelector('.carousel-item').clientWidth;
-            document.querySelector('.carousel-inner').style.transform = `translateX(-${width + 60}px)`;
+            const margin = Number(window.getComputedStyle(document.querySelector('.carousel-item')).marginLeft.replace('px', ''));
+            document.querySelector('.carousel-inner').style.transform = `translateX(-${width + margin * 2}px)`;
         }, []
     );
     useEffect(
         () => {
             const width = document.querySelector('.carousel-item').clientWidth;
-            document.querySelector('.carousel-inner').style.transform = `translateX(-${width + 60}px)`;
+            const margin = Number(window.getComputedStyle(document.querySelector('.carousel-item')).marginLeft.replace('px', ''));
+            document.querySelector('.carousel-inner').style.transform = `translateX(-${width + margin * 2}px)`;
         }, [items]
     );
 

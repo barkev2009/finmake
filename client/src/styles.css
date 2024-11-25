@@ -149,6 +149,7 @@ code {
   padding: 0 35px;
   border-radius: 30px;
   background-color: white;
+  width: 50vw;
 }
 
 .carousel-item div {
@@ -636,14 +637,37 @@ code {
   .range-body {
     width: 90vw;
   }
+
+  .carousel-item {
+    margin: 0 10px;
+    padding: 0 15px;
+  }
 }
 
 @media (max-width: 500px) {
   .carousel-item li {
-    font-size: 2.5vw;
+    font-size: 3vw;
   }
 
   .result_card {
     padding-top: 15px;
+  }
+
+  .carousel-item {
+    margin: 0;
+    padding: 0 5px;
+    border-radius: 15px;
+  }
+  .carousel-item .icon {
+    display: none;
+  }
+  .carousel-item>.title-block {
+    justify-content: center;
+  }
+  .carousel-item ul {
+    padding-inline-start: 20px;
+  }
+  .carousel-item>.title-block h3 {
+    margin: 0;
   }
 }

@@ -27,7 +27,7 @@ export const PROGRESS_STATS = [
     },
     {
         name: 'Услуги',
-        progress: 85,
+        progress: 95,
         id: 'carousel_container'
     },
     {
