@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import PopupButton from './PopupButton'
 import imgPath from '../img/mainLogo.png'
-import { PROGRESS_STATS } from '../const';
+import { PROGRESS_STATS, SKIP_ITEMS } from '../const';
 import burgerIcon from '../img/burger.png'
 import burgerIconWhite from '../img/burger_white.png'
+import { navigateToId } from '../utils/navigate';
 
 const Header = () => {
 
@@ -14,9 +15,7 @@ const Header = () => {
   const headerItemHandler = (id) => {
     return () => {
       setBurgerActive(false);
-      if (document.getElementById(id)) {
-        window.scrollBy({ top: document.getElementById(id).getBoundingClientRect().top - document.getElementById('header_container').clientHeight, behavior: 'smooth' });
-      }
+      navigateToId(id);
     }
   }
 
@@ -31,14 +30,14 @@ const Header = () => {
         <div className="right_panel">
           <div className="header_items">
             {
-              [...PROGRESS_STATS.filter(s => !['Хедер', 'Футер'].includes(s.name))]
+              [...PROGRESS_STATS.filter(s => !SKIP_ITEMS.includes(s.name))]
                 .map(stat => <div key={stat.name} onClick={headerItemHandler(stat.id)} style={{ color: (stat.name === 'Калькулятор' ? 'var(--main_color)' : 'black') }} className='header_item'>{stat.name}</div>)
             }
           </div>
           <PopupButton />
-        </div>
-        <div onClick={burgerHandler} className="burger">
-          <img src={burgerIcon} alt="burger" />
+          <div onClick={burgerHandler} className="burger">
+            <img src={burgerIcon} alt="burger" />
+          </div>
         </div>
       </nav>
       <div style={{ transform: `translate(${burgerActive ? '0%' : '100%'})` }} className="header_slider_container">
@@ -47,7 +46,7 @@ const Header = () => {
         </div>
         <div className="header_items">
           {
-            [...PROGRESS_STATS.filter(s => !['Хедер', 'Футер'].includes(s.name))]
+            [...PROGRESS_STATS.filter(s => !SKIP_ITEMS.includes(s.name))]
               .map(stat => <div key={stat.name} onClick={headerItemHandler(stat.id)} className='header_item'>{stat.name}</div>)
           }
         </div>

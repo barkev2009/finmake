@@ -89,6 +89,7 @@ code {
   height: 40px;
   margin: 26px 0;
   cursor: pointer;
+  margin-left: 20px;
 }
 
 #header_container nav .burger img {
@@ -542,7 +543,19 @@ code {
   left: 0;
 }
 
-.popupBtn {
+#about_us {
+  height: calc(100vh - 92px);
+  min-height: 400px;
+}
+
+#about_us .buttons_block {
+  display: flex;
+  justify-content: space-between; 
+  margin-top: 70px;
+}
+
+.popupBtn,
+.calculator_button {
   border-radius: 30px;
   background-color: var(--main_color);
   color: azure;
@@ -554,8 +567,51 @@ code {
   text-transform: uppercase;
 }
 
+.calculator_button {
+  background-color: #4d4d4d;
+}
+
+.about_us_container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.about_us_block {
+  margin-top: 15vh;
+  display: flex;
+  align-items: center;
+}
+
+.about_us_content {
+  width: 55%;
+  margin-right: 20px;
+}
+
+.about_us_content h2,
+.about_us_content h3 {
+  font-weight: 500;
+}
+
+.about_us_content h2 {
+  font-size: 30px;
+}
+
+.about_us_content h3 {
+  text-align: end;
+  font-size: 27px;
+}
+
+.about_us_block img {
+  width: 45%;
+}
+
+
 @media (max-width: 1250px) {
-  .select_container, .range-body {
+
+  .select_container,
+  .range-body {
     width: 40vw;
   }
 }
@@ -621,6 +677,17 @@ code {
 
 }
 
+@media (max-width: 700px) {
+  .about_us_block img {
+    display: none;
+  }
+
+  .about_us_content {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
 @media (max-width: 600px) {
   .carousel-item li {
     font-size: 2.5vw;
@@ -658,15 +725,19 @@ code {
     padding: 0 5px;
     border-radius: 15px;
   }
+
   .carousel-item .icon {
     display: none;
   }
+
   .carousel-item>.title-block {
     justify-content: center;
   }
+
   .carousel-item ul {
     padding-inline-start: 20px;
   }
+
   .carousel-item>.title-block h3 {
     margin: 0;
   }

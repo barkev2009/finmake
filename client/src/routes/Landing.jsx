@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CalculatorContainer from '../components/calc/CalculatorContainer';
 import Carousel from '../components/carousel/Carousel';
-import AboutUs from '../components/intro/AboutUs';
+import AboutUs from '../components/about_us/AboutUs';
 
 export const ModalContext = createContext();
 

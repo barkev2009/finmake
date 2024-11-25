@@ -22,7 +22,7 @@ export const PROGRESS_STATS = [
     },
     {
         name: 'О нас',
-        progress: 10,
+        progress: 95,
         id: 'about_us'
     },
     {
@@ -48,8 +48,14 @@ export const PROGRESS_STATS = [
     {
         name: 'Футер',
         progress: 30
+    },
+    {
+        name: 'Всплывашка',
+        progress: 30
     }
 ];
+
+export const SKIP_ITEMS = ['Всплывашка', 'Хедер', 'Футер']
 
 
 export const CAROUSEL_ITEMS = [
