@@ -1,23 +1,29 @@
 * {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  color: var(--gray_color);
 }
 
 :root {
   --main_color: #B00819;
-  --gray_color: #4d4d4d
+  --gray_color: #4d4d4d;
+  --white_color: white;
 }
 
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--gray_color);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white_color);
 }
 
 .title {
@@ -42,7 +48,7 @@ code {
   padding: 0 20px;
   position: sticky;
   top: 0;
-  background-color: white;
+  background-color: var(--white_color);
   z-index: 1;
 }
 
@@ -83,7 +89,7 @@ code {
   margin-top: 35px;
   font-weight: 500;
   text-transform: uppercase;
-  color: white;
+  color: var(--white_color);
 }
 
 .burger img {
@@ -142,7 +148,6 @@ code {
   display: flex;
   width: 200%;
   height: 500px;
-  /* transition: transform 0.5s; */
 }
 
 .carousel-item {
@@ -151,7 +156,7 @@ code {
   margin: 0 30px;
   padding: 0 35px;
   border-radius: 30px;
-  background-color: white;
+  background-color: var(--white_color);
   width: 50vw;
 }
 
@@ -219,7 +224,7 @@ code {
 }
 
 #services_container .title {
-  color: white;
+  color: var(--white_color);
 }
 
 #services_container>.title-block {
@@ -279,19 +284,62 @@ code {
 }
 
 #calculator_container,
-#sectors_container {
+#sectors_container,
+#footer_container {
   width: 100%;
   padding: 0 10px;
   display: flex;
   justify-content: center;
 }
 
+#footer_container {
+  background-color: var(--gray_color);
+  color: var(--white_color);
+}
+
 #calculator_container .calculator_content,
-#sectors_container .sectors_content {
+#sectors_container .sectors_content,
+#footer_container .footer_content {
   width: 100%;
   max-width: 1100px;
   display: flex;
   flex-direction: column;
+  padding-top: 90px;
+  padding-bottom: 150px;
+}
+
+#footer_container .footer_content {
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
+
+.footer_content .left_panel {
+  display: flex;
+}
+
+.footer_content .title {
+  margin-bottom: 40px;
+}
+
+.footer_content .company_col,
+.footer_content .contacts_col {
+  width: 20vw;
+}
+
+.footer_content .right_panel {
+  width: 25%;
+  padding-top: 55px;
+}
+
+.footer_content .column_items>* {
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.footer_content .icon {
+  position: absolute;
+  top: 15px;
 }
 
 .calculator_content>.title-block,
@@ -447,7 +495,7 @@ code {
 
 .result_card {
   background-color: var(--main_color);
-  color: white;
+  color: var(--white_color);
   font-weight: 400;
   border-radius: 15px;
   height: 70px;
@@ -481,7 +529,7 @@ code {
 
 .admin_container .tab.active {
   background-color: var(--main_color);
-  color: white;
+  color: var(--white_color);
 }
 
 .commits_container,
@@ -544,7 +592,7 @@ code {
 .screens_container .progress {
   background-color: var(--main_color);
   height: 100%;
-  color: white;
+  color: var(--white_color);
 }
 
 .screens_container p {
@@ -632,6 +680,7 @@ code {
   width: 31%;
   border-radius: 30px;
   box-shadow: 0px 2px 3px 0px rgb(188, 188, 188);
+  height: 300px;
 }
 
 .sector_title_block {
@@ -732,6 +781,23 @@ code {
     width: 100%;
     margin-right: 0;
   }
+
+  .footer_content .left_panel {
+    flex-direction: column;
+  }
+
+  .footer_content .company_col,
+  .footer_content .contacts_col {
+    width: 40vw;
+  }
+
+  .footer_content .company_col {
+    margin-bottom: 60px;
+  }
+
+  .footer_content .right_panel {
+    width: 40vw;
+  }
 }
 
 @media (max-width: 600px) {
@@ -748,7 +814,7 @@ code {
   }
 
   .range-body {
-    width: 90vw;
+    width: 95%;
   }
 
   .carousel-item {
@@ -790,5 +856,31 @@ code {
 
   .carousel-item>.title-block h3 {
     margin: 0;
+  }
+
+  #footer_container .footer_content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer_content .company_col,
+  .footer_content .contacts_col,
+  .footer_content .right_panel {
+    width: 100%;
+  }
+
+  .footer_content .right_panel {
+    padding-top: 80px;
+  }
+
+  .footer_content .right_panel .icon {
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .footer_content .right_panel .description {
+    text-align: center;
+    margin-top: 30px;
   }
 }
