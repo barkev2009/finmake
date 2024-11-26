@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { SELECT_BLOCKS, SLIDERS } from '../../const'
-import SelectContainer from './SelectContainer'
-import SliderContainer from '../slider/SliderContainer'
-import ResultCard from './ResultCard'
+import React from 'react'
+import { SELECT_BLOCKS, SLIDERS } from '../const'
+import SelectContainer from '../components/calc/SelectContainer'
+import SliderContainer from '../components/slider/SliderContainer'
+import ResultCard from '../components/calc/ResultCard'
 
 const CalculatorContainer = () => {
 

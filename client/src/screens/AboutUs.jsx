@@ -1,7 +1,7 @@
 import React from 'react';
-import aboutUsSrc from '../../img/aboutUs.png'
-import PopupButton from '../PopupButton';
-import { navigateToId } from '../../utils/navigate';
+import aboutUsSrc from '../img/aboutUs.png'
+import PopupButton from '../common/PopupButton';
+import { navigateToId } from '../utils/navigate';
 
 const AboutUs = () => {
 

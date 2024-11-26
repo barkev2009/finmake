@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { CAROUSEL_ITEMS } from '../../const';
-import CarouselItem from './CarouselItem';
-import CarouselArrow from '../../svg/CarouselArrow';
+import { CAROUSEL_ITEMS } from '../const';
+import CarouselItem from '../components/items/CarouselItem';
+import CarouselArrow from '../svg/CarouselArrow';
 
-const Carousel = () => {
+const ServicesContainer = () => {
 
     const currentIndex = useRef(0);
-    const [marker, setMarker] = useState(0);
     const [items, setItems] = useState([CAROUSEL_ITEMS[CAROUSEL_ITEMS.length - 1], ...CAROUSEL_ITEMS.slice(0, 3)]);
 
     const getCarouselItems = () => {
@@ -47,7 +46,6 @@ const Carousel = () => {
                 setItems(getCarouselItems());
             }, 500
         );
-        setMarker(currentIndex.current);
     }
 
     function goToNextSlide() {
@@ -57,17 +55,6 @@ const Carousel = () => {
     function goToPrevSlide() {
         goToSlide(currentIndex.current - 1);
     }
-
-    function markerHandler(index) {
-        return function () {
-            goToSlide(index);
-        }
-    }
-
-    // window.addEventListener('resize', function() {
-    //     goToPrevSlide();
-    //     goToNextSlide();
-    // }, true);
 
     useEffect(
         () => {
@@ -85,7 +72,7 @@ const Carousel = () => {
     );
 
     return (
-        <div id='carousel_container'>
+        <div id='services_container'>
             <div className="title-block">
                 <h3 className='title'>Услуги</h3>
             </div>
@@ -102,14 +89,9 @@ const Carousel = () => {
                 </div>
                 <CarouselArrow className={'carousel_btn right'} onClick={goToNextSlide} />
             </div>
-            {/* <div className='carousel-marker_container'>
-                {
-                    CAROUSEL_ITEMS.map((item, idx) => <div className={`carousel-marker ${marker === idx ? 'active' : ''}`} onClick={markerHandler(idx)} key={idx}></div>)
-                }
-            </div> */}
         </div>
 
     )
 }
 
-export default Carousel
+export default ServicesContainer

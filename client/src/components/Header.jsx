@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import PopupButton from './PopupButton'
+import PopupButton from '../common/PopupButton'
 import imgPath from '../img/mainLogo.png'
 import { PROGRESS_STATS, SKIP_ITEMS } from '../const';
 import burgerIcon from '../img/burger.png'
@@ -31,7 +31,7 @@ const Header = () => {
           <div className="header_items">
             {
               [...PROGRESS_STATS.filter(s => !SKIP_ITEMS.includes(s.name))]
-                .map(stat => <div key={stat.name} onClick={headerItemHandler(stat.id)} style={{ color: (stat.name === 'Калькулятор' ? 'var(--main_color)' : 'black') }} className='header_item'>{stat.name}</div>)
+                .map(stat => <div key={stat.name} onClick={headerItemHandler(stat.id)} style={{ color: (stat.name === 'Калькулятор' ? 'var(--main_color)' : 'var(--gray_color)') }} className='header_item'>{stat.name}</div>)
             }
           </div>
           <PopupButton />
