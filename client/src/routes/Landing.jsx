@@ -6,6 +6,7 @@ import CalculatorContainer from '../screens/CalculatorContainer';
 import AboutUs from '../screens/AboutUs';
 import Sectors from '../screens/SectorContainer';
 import ServicesContainer from '../screens/ServicesContainer';
+import WorkSteps from '../screens/WorkSteps';
 
 export const ModalContext = createContext();
 
@@ -20,6 +21,7 @@ const Landing = () => {
                 <AboutUs />
                 <ServicesContainer />
                 <Sectors />
+                <WorkSteps />
                 <CalculatorContainer />
                 <Popup />
                 <Footer />

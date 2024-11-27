@@ -44,8 +44,8 @@ export const PROGRESS_STATS = [
     },
     {
         name: 'Этапы',
-        progress: 0,
-        id: ''
+        progress: 60,
+        id: 'steps_container'
     },
     {
         name: 'Калькулятор',
@@ -62,7 +62,22 @@ export const PROGRESS_STATS = [
     }
 ];
 
-export const SKIP_ITEMS = ['Всплывашка', 'Хедер', 'Футер']
+export const SKIP_ITEMS = ['Всплывашка', 'Хедер', 'Футер'];
+
+export const WORK_STEPS = [
+    {
+        number: '01',
+        descr: 'Рассчитайте предварительную стоимость услуг с помощью калькулятора'
+    },
+    {
+        number: '02',
+        descr: ['Оставьте заявку на звонок', ' в удобное для вас время или позвоните нашему ведущему специалисту по номеру ', ', если возникли вопросы']
+    },
+    {
+        number: '03',
+        descr: 'Возьмем Ваш документооборот и учет на себя, приведем их вид к совершенству'
+    }
+]
 
 export const SECTORS = [
     {
