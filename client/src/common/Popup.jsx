@@ -48,40 +48,47 @@ const Popup = () => {
 
     return (
         <Modal active={active} setActive={setActive}>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <h1>Закажите звонок:</h1>
+            <div className='popup'>
+                <h3 className='title'>Закажите звонок:</h3>
                 <form onSubmit={submitHandler}>
-                    <div>
-                        <input type="text" placeholder='Введите имя' value={name} onChange={e => setName(e.target.value)} />
+                    <div className="row contacts">
+                        <div className='inline-block'>
+                            <div className="label">Ваше ФИО</div>
+                            <input type="text" value={name} onChange={e => setName(e.target.value)} />
+                        </div>
+                        <div className='inline-block'>
+                            <div className="label">Номер телефона</div>
+                            <InputMask
+                                mask="+7 (999) 999-99-99"
+                                value={phone_number}
+                                onChange={e => setPhoneNumber(e.target.value)}
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <InputMask
-                            mask="+7 (999) 999-99-99"
-                            placeholder="Введите номер телефона"
-                            value={phone_number}
-                            onChange={e => setPhoneNumber(e.target.value)}
-                        />
+                    <div className='row call_range'>
+                        <div className="label">Желаемый диапазон времени звонка</div>
+                        <div className="ranges">
+                            <InputMask
+                                mask="99:99"
+                                value={time_start}
+                                onChange={e => setStartTime(e.target.value)}
+                            />
+                            <InputMask
+                                mask="99:99"
+                                value={time_end}
+                                onChange={e => setEndTime(e.target.value)}
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <InputMask
-                            mask="99:99"
-                            placeholder="Начало диапазона"
-                            value={time_start}
-                            onChange={e => setStartTime(e.target.value)}
-                        />
-                        <InputMask
-                            mask="99:99"
-                            placeholder="Конец диапазона"
-                            value={time_end}
-                            onChange={e => setEndTime(e.target.value)}
-                        />
+                    <div className="row">
+                        <div>
+                            <div className="label">Часовой пояс</div>
+                            <select value={timezone} onChange={e => setTimeZone(e.target.value)} name="timezones" id="timezone-select">
+                                {TIME_ZONES.map(item => <option key={item.code} value={item.code}>{item.value}</option>)}
+                            </select>
+                        </div>
                     </div>
-                    <div>
-                        <select value={timezone} onChange={e => setTimeZone(e.target.value)} name="timezones" id="timezone-select">
-                            {TIME_ZONES.map(item => <option key={item.code} value={item.code}>{item.value}</option>)}
-                        </select>
-                    </div>
-                    <button type='submit' disabled={disabled} onClick={submitHandler}>Заказать</button>
+                    <button className='popupBtn' type='submit' disabled={disabled} onClick={submitHandler}>Заказать</button>
                 </form>
             </div>
         </Modal>

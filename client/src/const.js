@@ -58,7 +58,7 @@ export const PROGRESS_STATS = [
     },
     {
         name: 'Всплывашка',
-        progress: 30
+        progress: 85
     }
 ];
 

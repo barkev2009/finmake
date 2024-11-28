@@ -644,8 +644,13 @@ a {
   text-transform: uppercase;
 }
 
+.popupBtn:disabled {
+  background-color: var(--gray_color);
+  opacity: .3;
+}
+
 .calculator_button {
-  background-color: #4d4d4d;
+  background-color: var(--gray_color);
 }
 
 .about_us_container {
@@ -774,6 +779,82 @@ a {
   cursor: pointer;
 }
 
+.popup {
+  padding: 40px;
+  width: 100%;
+}
+
+.popup input,
+.popup select {
+  font-size: 15px;
+  padding: 2px;
+}
+
+.popup .title {
+  color: var(--main_color);
+  display: flex;
+  flex-direction: column;
+}
+
+.popup .label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.popup form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup .row {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.popup .row.contacts,
+.popup .ranges {
+  display: flex;
+}
+
+.popup .row.contacts input {
+  width: 100%;
+  ;
+}
+
+.popup .inline-block {
+  display: inline-block;
+  flex: 1 1 0;
+}
+
+.popup .ranges input {
+  flex: 1 1 0;
+}
+
+.popup .inline-block:nth-of-type(1),
+.popup .ranges input:nth-of-type(1) {
+  margin-right: 10px;
+}
+
+.popup .inline-block:nth-of-type(2),
+.popup .ranges input:nth-of-type(2) {
+  margin-left: 10px;
+}
+
+
+.popup .row.call_range .label {
+  text-align: center;
+}
+
+.popup .popupBtn {
+  margin: 20px 0;
+}
+
+.popup select {
+  width: 100%;
+}
+
 @media (max-width: 1250px) {
 
   .select_container,
@@ -849,8 +930,30 @@ a {
     width: 45%;
   }
 
+  .steps {
+    flex-direction: column;
+  }
+
+  .steps .step:nth-of-type(1),
+  .steps .step:nth-of-type(2),
+  .steps .step:nth-of-type(3) {
+    margin: 20px 0;
+  }
+
+  .steps .step {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .steps .step .figure {
+    margin: 10px;
+  }
+
   .steps .step_description {
     font-size: 15px;
+    margin: 0;
   }
 
 }
@@ -880,6 +983,30 @@ a {
 
   .footer_content .right_panel {
     width: 40vw;
+  }
+
+  .popup {
+    padding: 20px;
+  }
+
+  .popup .row.contacts {
+    flex-direction: column;
+  }
+
+  .popup .inline-block:nth-of-type(1) {
+    margin: 0;
+  }
+
+  .popup .inline-block:nth-of-type(2) {
+    margin: 0;
+  }
+
+  .popup .ranges input {
+    width: 50%;
+  }
+
+  .steps .label {
+    font-size: 3vw;
   }
 }
 
@@ -969,5 +1096,9 @@ a {
 
   .steps .step_description {
     width: 100%;
+  }
+
+  .steps .label {
+    font-size: 4vw;
   }
 }
