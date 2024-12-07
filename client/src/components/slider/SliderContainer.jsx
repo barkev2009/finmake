@@ -2,59 +2,59 @@ import React, { useEffect, useRef } from 'react'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCalcParams } from '../../store/calcSlice';
+import { useSliderInitiator } from '../../hooks';
 
 const SliderContainer = ({ length = 5, id, step = 1, name }) => {
 
     const isClicked = useRef(false);
+    const [isDown, setIsDown] = useState(false);
     const dispatch = useDispatch();
     const [value, setValue] = useState(0);
     const [selectorValue, setSelectorValue] = useState(0);
-    const isVisible = useRef(document.querySelector(`#${id}.range-body`));
+
+    const sliderHandler = (e) => {
+        if (isClicked.current) {
+            setPerc((e.touches !== undefined && e.touches.length > 0) ? e.touches[0].clientX : e.clientX);
+        }
+    }
+    const downHandler = (e) => {
+        setIsDown(true);
+        isClicked.current = true;
+        document.querySelector(`#${id} .range-selector .tooltip`).style.opacity = `100%`;
+        setPerc((e.touches !== undefined && e.touches.length > 0) ? e.touches[0].clientX : e.clientX);
+    }
+    const upHandler = (e) => {
+        setIsDown(false);
+        isClicked.current = false;
+        document.querySelector(`#${id} .range-selector .tooltip`).style.opacity = `0%`;
+        setPerc((e.touches !== undefined && e.touches.length > 0) ? e.touches[0].clientX : e.clientX);
+    }
+    const moveMarker = (position) => {
+        document.querySelector(`#${id} .range-selector`).style.left = `${position}%`;
+        document.querySelector(`#${id} .range-outer`).style.width = `${position}%`;
+    }
+
+    useSliderInitiator({ id, sliderHandler, upHandler, downHandler });
 
     useEffect(
         () => {
-            if (isVisible.current !== undefined) {
-                document.querySelector(`#${id}.range-body`).addEventListener(
-                    'touchmove',
-                    sliderHandler
-                );
-                document.querySelector(`#${id}.range-body`).addEventListener(
-                    'touchstart',
-                    downHandler
-                );
-                document.querySelector(`#${id}.range-body`).addEventListener(
-                    'touchend',
-                    upHandler
-                );
-                document.querySelector(`#${id} .range-selector`).addEventListener(
-                    'mouseenter',
-                    () => {
-                        document.querySelector(`#${id} .range-selector .tooltip`).style.opacity = `100%`;
-                    }
-                );
-                document.querySelector(`#${id} .range-selector`).addEventListener(
-                    'mouseleave',
-                    () => {
-                        document.querySelector(`#${id} .range-selector .tooltip`).style.opacity = `0%`;
-                    }
-                );
-            }
-        }, [isVisible.current]
-    );
-    useEffect(
-        () => {
             if (selectorValue) {
-                document.querySelector(`#${id} .range-selector`).style.left = `${selectorValue}%`;
-                document.querySelector(`#${id} .range-outer`).style.width = `${selectorValue}%`;
-                if (selectorValue * length / 100 - Math.floor(selectorValue * length / 100) > 0.95) {
-                    setValue(Math.floor(selectorValue * length / 100) + 1);
-                    dispatch(setCalcParams({ id, value: Math.floor(selectorValue * length / 100) + 1 }));
-                } else {
+                moveMarker(selectorValue);
+                const valueCandidate = selectorValue * length / 100;
+                if (Math.abs(valueCandidate - Math.floor(valueCandidate)) < 0.5) {
                     setValue(Math.floor(selectorValue * length / 100));
                     dispatch(setCalcParams({ id, value: Math.floor(selectorValue * length / 100) }));
+                } else {
+                    setValue(Math.ceil(selectorValue * length / 100));
+                    dispatch(setCalcParams({ id, value: Math.ceil(selectorValue * length / 100) }));
                 }
             }
         }, [selectorValue]
+    );
+    useEffect(
+        () => {
+            !isDown && moveMarker(Math.floor(value / length * 100));
+        }, [isDown]
     );
 
     const setPerc = (current) => {
@@ -69,22 +69,6 @@ const SliderContainer = ({ length = 5, id, step = 1, name }) => {
             isClicked.current = false;
         }
         setSelectorValue((current - left) / (right - left) * 100);
-    }
-
-    const sliderHandler = (e) => {
-        if (isClicked.current) {
-            setPerc((e.touches !== undefined && e.touches.length > 0) ? e.touches[0].clientX : e.clientX);
-        }
-    }
-    const downHandler = (e) => {
-        isClicked.current = true;
-        document.querySelector(`#${id} .range-selector .tooltip`).style.opacity = `100%`;
-        setPerc((e.touches !== undefined && e.touches.length > 0) ? e.touches[0].clientX : e.clientX);
-    }
-    const upHandler = (e) => {
-        isClicked.current = false;
-        document.querySelector(`#${id} .range-selector .tooltip`).style.opacity = `0%`;
-        setPerc((e.touches !== undefined && e.touches.length > 0) ? e.touches[0].clientX : e.clientX);
     }
 
     const tickStylesArray = [...Array(length / step + 1).keys()]

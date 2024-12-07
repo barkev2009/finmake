@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../const';
 import { useSelector } from 'react-redux';
@@ -30,4 +30,40 @@ export function useWindowSize() {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     return size;
+}
+
+export function useSliderInitiator({ id, sliderHandler, upHandler, downHandler }) {
+    const isVisible = useRef(document.querySelector(`#${id}.range-body`));
+
+
+    useEffect(
+        () => {
+            if (isVisible.current !== undefined) {
+                document.querySelector(`#${id}.range-body`).addEventListener(
+                    'touchmove',
+                    sliderHandler
+                );
+                document.querySelector(`#${id}.range-body`).addEventListener(
+                    'touchstart',
+                    downHandler
+                );
+                document.querySelector(`#${id}.range-body`).addEventListener(
+                    'touchend',
+                    upHandler
+                );
+                document.querySelector(`#${id} .range-selector`).addEventListener(
+                    'mouseenter',
+                    () => {
+                        document.querySelector(`#${id} .range-selector .tooltip`).style.opacity = `100%`;
+                    }
+                );
+                document.querySelector(`#${id} .range-selector`).addEventListener(
+                    'mouseleave',
+                    () => {
+                        document.querySelector(`#${id} .range-selector .tooltip`).style.opacity = `0%`;
+                    }
+                );
+            }
+        }, [isVisible.current]
+    );
 }

@@ -248,63 +248,63 @@ export const TIME_ZONES = [
         value: 'UTC-1 (Кабо-Верде)'
     },
     {
-        code: 'UTC+0',
+        code: 'UTC0',
         value: 'UTC+0 (Лондон)'
     },
     {
-        code: 'UTC+1',
+        code: 'UTC1',
         value: 'UTC+1 (Берлин)'
     },
     {
-        code: 'UTC+2',
+        code: 'UTC2',
         value: 'UTC+2 (Калининград)'
     },
     {
-        code: 'UTC+3',
+        code: 'UTC3',
         value: 'UTC+3 (Москва)'
     },
     {
-        code: 'UTC+4',
+        code: 'UTC4',
         value: 'UTC+4 (Саратов)'
     },
     {
-        code: 'UTC+5',
+        code: 'UTC5',
         value: 'UTC+5 (Екатеринбург)'
     },
     {
-        code: 'UTC+6',
+        code: 'UTC6',
         value: 'UTC+6 (Омск)'
     },
     {
-        code: 'UTC+7',
+        code: 'UTC7',
         value: 'UTC+7 (Новосибирск)'
     },
     {
-        code: 'UTC+8',
+        code: 'UTC8',
         value: 'UTC+8 (Иркутск)'
     },
     {
-        code: 'UTC+9',
+        code: 'UTC9',
         value: 'UTC+9 (Якутск)'
     },
     {
-        code: 'UTC+10',
+        code: 'UTC10',
         value: 'UTC+10 (Владивосток)'
     },
     {
-        code: 'UTC+11',
+        code: 'UTC11',
         value: 'UTC+11 (Магадан)'
     },
     {
-        code: 'UTC+12',
+        code: 'UTC12',
         value: 'UTC+12 (Анадырь)'
     },
     {
-        code: 'UTC+13',
+        code: 'UTC13',
         value: 'UTC+13 (Токелау)'
     },
     {
-        code: 'UTC+14',
+        code: 'UTC14',
         value: 'UTC+14 (Кирибати)'
     }
 ];

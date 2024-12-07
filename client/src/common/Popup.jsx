@@ -9,9 +9,10 @@ import getCurrentTime from '../utils/getCurrentTime';
 const Popup = () => {
 
     const { active, setActive } = useContext(ModalContext);
+    const currentTimeZone = `UTC${-(new Date().getTimezoneOffset()) / 60}`
 
     const [name, setName] = useState('');
-    const [timezone, setTimeZone] = useState('UTC+7');
+    const [timezone, setTimeZone] = useState(currentTimeZone);
     const [time_start, setStartTime] = useState(getCurrentTime());
     const [time_end, setEndTime] = useState(getCurrentTime());
     const [phone_number, setPhoneNumber] = useState('');
@@ -22,12 +23,12 @@ const Popup = () => {
         setPhoneNumber('');
         setStartTime(getCurrentTime());
         setEndTime(getCurrentTime());
-        setTimeZone('UTC+7');
+        setTimeZone(currentTimeZone);
     }
     const submitHandler = (e) => {
         e.preventDefault();
         setActive(false);
-        createCreateRequestAPI({ name, phone_number, timezone, time_start, time_end });
+        createCreateRequestAPI({ name, phone_number, timezone: TIME_ZONES.filter(i => i.code === timezone)[0].value.split(' ')[0] , time_start, time_end });
         resetFields();
     }
     useEffect(

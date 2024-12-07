@@ -464,7 +464,7 @@ a {
   cursor: pointer;
   left: 0%;
   top: 25%;
-  transform: translateX(-50%);
+  transform: translateX(-25%);
   cursor: move;
 }
 
@@ -518,6 +518,7 @@ a {
   height: 70px;
   width: 55%;
   text-align: center;
+  padding: 5px;
   padding-top: 25px;
   position: relative;
   float: right;
@@ -1043,6 +1044,7 @@ a {
   }
 
   .result_card {
+    padding: 5px;
     padding-top: 15px;
   }
 
