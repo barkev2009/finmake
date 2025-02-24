@@ -29,7 +29,7 @@ const Footer = () => {
                     <div className="contacts_col">
                         <div className="title">Контакты</div>
                         <div className="column_items">
-                            <PhoneLink />
+                            {/* <PhoneLink /> */}
                             <div className="address">{FOOTER_DATA.address}</div>
                             <MailLink />
                         </div>
