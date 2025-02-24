@@ -19,7 +19,9 @@ const WorkStep = ({ step }) => {
                 </div>
             </div>
             {step.number === '02' ?
-                <div className="step_description"><a onClick={() => setActive(prev => !prev)} >{step.descr[0]}</a>{step.descr[1]}<PhoneLink />{step.descr[2]}</div>
+                <div className="step_description"><a onClick={() => setActive(prev => !prev)} >{step.descr[0]}</a>{step.descr[1]}
+                {/* <PhoneLink /> */}
+                {step.descr[2]}</div>
                 : <div className="step_description">{step.descr}</div>
             }
         </div>
